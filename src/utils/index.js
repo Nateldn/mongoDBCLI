@@ -13,15 +13,18 @@ class Movie {
 
     async update (collection) { //update a movie item in our collection
         // await collection.updateOne(this);
-        // const update = await Movies.updateOne(filter, updateDoc, options);
-        use Movies
-        Movies.updateOne( { title: "Top Gun" },
-        {
-        $set: {
-        rating: "Excellent"
-        }
-        { $currentDate: { lastUpdated: true } }
-        })
+        const response = await Movies.updateOne(
+            {title: this.title},
+            {$set {rating: this.rating}}
+            );
+        // use Movies
+        // Movies.updateOne( { title: "Top Gun" },
+        // {
+        // $set: {
+        // rating: "Excellent"
+        // }
+        // { $currentDate: { lastUpdated: true } }
+        // })
        
     }
 
